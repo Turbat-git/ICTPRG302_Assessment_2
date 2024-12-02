@@ -4,10 +4,9 @@
 # Constant
 MAGIC_NUMBER = 42
 MIN_RANGE = 0
-MAX_RANGE = 100
+MAX_RANGE = 99
 
 
-# Variables
 
 # Function to validate number
 def validate_number(number_to_validate):
@@ -22,14 +21,14 @@ def validate_number(number_to_validate):
 # Determine the message based on the number entered
 def determine_clue(number_guessed, secret_number):
     message = 'Yes, 42 is the magic number'
-    if number_guessed > secret_number:
-        message = 'Number is too large'
-    elif number_guessed == 'No':
+    if number_guessed == 'No':
         message = 'Please enter a number'
-    elif number_guessed < secret_number:
-        message = 'Number is too small'
     elif number_guessed > MAX_RANGE or number_guessed < MIN_RANGE:
         message = 'Number out of boundary'
+    elif number_guessed > secret_number:
+        message = 'Number is too large'
+    elif number_guessed < secret_number:
+        message = 'Number is too small'
     return message
 
 
@@ -45,8 +44,4 @@ while number != MAGIC_NUMBER:
     clue = determine_clue(number, MAGIC_NUMBER)
     print(clue)
 
-# Input from the user
 
-# validate_number(number)
-# print(determine_clue(0,42))
-# print("The end")
